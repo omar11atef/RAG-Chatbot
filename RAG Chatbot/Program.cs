@@ -1,23 +1,42 @@
+using RAG_Chatbot.Extensions;
+using RAG_Chatbot.Filters;
+using RAG_Chatbot.Middleware;
+using UniversityRAGChatbot.Infrastructure.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers(options => 
+{
+    options.Filters.Add<ValidationFilter>();
+});
 builder.Services.AddOpenApi();
+
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendPolicy", policy =>
+    {
+        policy.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
+app.UseCors("FrontendPolicy");
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseMiddleware<ApiKeyMiddleware>();
 
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
