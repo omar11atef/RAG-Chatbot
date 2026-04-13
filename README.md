@@ -1,14 +1,15 @@
-## University Chatbot - .NET Backend Gateway
-This service acts as the central orchestrator and API Gateway. It handles requests from the frontend, secures the connection, and communicates with the AI microservice.
+##🎓 University RAG Chatbot — Project Implementation Plan
 
-### 🛠️ Tech Stack
-Framework: .NET 8 (ASP.NET Core Web API)
-Communication: HttpClient (Typed Client)
-Security: API Key Authentication / CORS
-
-### 🚀 Features
-Proxy Logic: Forwards user queries to the Python AI service.
-
-Automation Handler: Endpoints for n8n to trigger backend-specific tasks.
-
-Error Handling: Standardized JSON error responses for the frontend.
+###📌 Project Overview
+FieldDetailsProject NameUniversity Information RAG ChatbotGoalA chatbot that answers student/client questions about the university (faculties, study systems, regulations, etc.) using Retrieval-Augmented Generation (RAG)ArchitectureRAG Pipeline: Document Ingestion → Vector Store → Retrieval → LLM Answer GenerationScaleSmall university task project🧠 How RAG Works in This Project
+User Question
+↓
+[Query Embedding] ←── AI/ML Person builds this
+↓
+[Vector Search → Retrieve Relevant Chunks from University Docs]
+↓
+[Inject Context + Question into LLM Prompt]
+↓
+[LLM Generates Grounded Answer]
+↓
+Response to User
