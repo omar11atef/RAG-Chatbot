@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, field_validator
 from typing import List
+import uuid
 
-# --- Responses ---
 class SourceResponse(BaseModel):
     file_name: str
     page: int
@@ -10,27 +10,38 @@ class SourceResponse(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     sources: List[SourceResponse] = []
+    turn_index: int
+    remaining_messages: int
 
-class TriggerResponse(BaseModel):
-    accepted: bool
-    message: str
-
-# --- Requests & Validation (Equivalent to FluentValidation) ---
 class ChatRequest(BaseModel):
+    session_id: uuid.UUID
     question: str = Field(..., max_length=1000)
 
     @field_validator('question')
-    def question_must_not_be_empty(cls, v: str):
+    def validate_question(cls, v: str):
         if not v.strip():
             raise ValueError("Question cannot be empty.")
         return v
 
+class CreateSessionResponse(BaseModel):
+    session_id: uuid.UUID
+
+class TurnHistoryDto(BaseModel):
+    turn_index: int
+    question: str
+    answer: str
+
+class SessionStateResponse(BaseModel):
+    session_id: uuid.UUID
+    message_count: int
+    message_limit: int
+    remaining_messages: int
+    is_active: bool
+    history: List[TurnHistoryDto]
+
 class TriggerRequest(BaseModel):
     trigger: str
 
-    @field_validator('trigger')
-    def validate_trigger_type(cls, v: str):
-        valid_triggers = {"manual", "scheduled", "document_added"}
-        if v.lower() not in valid_triggers:
-            raise ValueError("Trigger must be 'manual', 'scheduled', or 'document_added'.")
-        return v.lower()
+class TriggerResponse(BaseModel):
+    accepted: bool
+    message: str

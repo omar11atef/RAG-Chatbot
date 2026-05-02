@@ -18,8 +18,15 @@ class TriggerErrors:
         description="The RAG service failed to re-ingest the documents.", 
         status_code=500
     )
-    InvalidTriggerType = Error(
-        code="Trigger.InvalidTriggerType", 
-        description="The trigger type must be 'manual', 'scheduled', or 'document_added'.", 
-        status_code=400
+
+class SessionErrors:
+    NotFound = Error(
+        code="Session.NotFound",
+        description="The specified session does not exist.",
+        status_code=404
+    )
+    LimitReached = Error(
+        code="Session.LimitReached",
+        description="This session has reached its 10-message limit. Please start a new session.",
+        status_code=429
     )
