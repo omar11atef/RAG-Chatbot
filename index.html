@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شات بوت - جامعة بني سويف الأهلية</title>
+    <link rel="icon" type="image/jpg" href="logo.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap");
+      body {
+        font-family: "Tajawal", sans-serif;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #d0e1fd;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #8ba8df;
+        border-radius: 10px;
+      }
+
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      
+      /* Animation for typing indicator */
+      .typing-dot {
+        animation: typingBounce 1.4s infinite ease-in-out both;
+      }
+      .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+      .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+      @keyframes typingBounce {
+        0%, 80%, 100% { transform: scale(0); }
+        40% { transform: scale(1); }
+      }
+    </style>
+  </head>
+  <body class="bg-[#eef3fb] h-screen flex overflow-hidden">
+    <!-- Sidebar -->
+    <div
+      class="w-72 flex flex-col shadow-2xl z-20 hidden md:flex relative"
+      style="
+        background-image:
+          linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 58, 138, 0.85)),
+          url(&quot;bg.jpg&quot;);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="pt-6 pb-4 text-center flex flex-col items-center backdrop-blur-sm border-b border-white/20"
+      >
+        <img
+          src="logo.jpg"
+          alt="لوجو الجامعة"
+          class="w-20 h-20 object-contain mb-3 bg-white rounded-full p-1 shadow-lg"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjY2NjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTIiPkxvZ288L3RleHQ+PC9zdmc+'"
+        />
+        <h1 class="text-xl font-bold text-white shadow-sm drop-shadow-md">
+          جامعة بني سويف الأهلية
+        </h1>
+      </div>
+
+      <div class="p-4 overflow-y-auto mt-2 flex-1 space-y-3">
+        <p
+          class="text-xs font-bold text-gray-200 mb-3 px-2 tracking-wider drop-shadow-md"
+        >
+          معلومات هامة (اضغط للتفاصيل):
+        </p>
+
+        <details
+          class="group bg-white/10 border border-white/20 rounded-xl backdrop-blur-md shadow-sm open:bg-white/20 transition-all duration-300"
+        >
+          <summary
+            class="flex justify-between items-center font-medium cursor-pointer p-3 text-white text-sm"
+          >
+            <span>🤖 إيه هو المساعد الذكي؟</span>
+            <span
+              class="transition-transform duration-300 group-open:rotate-180"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </span>
+          </summary>
+          <div
+            class="text-xs text-blue-100 p-3 pt-0 leading-relaxed border-t border-white/10 mt-1"
+          >
+            أنا موديل ذكاء اصطناعي (AI) تم برمجتي وتدريبي بواسطة طلاب كلية
+            حاسبات للرد على كل استفساراتك بخصوص الجامعة بشكل فوري.
+          </div>
+        </details>
+
+        <details
+          class="group bg-white/10 border border-white/20 rounded-xl backdrop-blur-md shadow-sm open:bg-white/20 transition-all duration-300"
+        >
+          <summary
+            class="flex justify-between items-center font-medium cursor-pointer p-3 text-white text-sm"
+          >
+            <span>📅 مواعيد التقديم؟</span>
+            <span
+              class="transition-transform duration-300 group-open:rotate-180"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </span>
+          </summary>
+          <div
+            class="text-xs text-blue-100 p-3 pt-0 leading-relaxed border-t border-white/10 mt-1"
+          >
+            يبدأ التقديم للعام الدراسي الجديد فور إعلان نتيجة الثانوية العامة
+            ويستمر حتى اكتمال الأعداد المتاحة لكل كلية.
+          </div>
+        </details>
+
+        <details
+          class="group bg-white/10 border border-white/20 rounded-xl backdrop-blur-md shadow-sm open:bg-white/20 transition-all duration-300"
+        >
+          <summary
+            class="flex justify-between items-center font-medium cursor-pointer p-3 text-white text-sm"
+          >
+            <span>📍 مكان الجامعة؟</span>
+            <span
+              class="transition-transform duration-300 group-open:rotate-180"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </span>
+          </summary>
+          <div
+            class="text-xs text-blue-100 p-3 pt-0 leading-relaxed border-t border-white/10 mt-1"
+          >
+            تقع جامعة بني سويف الأهلية في مجمع الـ 330 فدان بشرق النيل، محافظة
+            بني سويف.
+          </div>
+        </details>
+      </div>
+
+      <div
+        class="p-3 text-center text-xs text-white font-medium border-t border-white/20 bg-black/30 backdrop-blur-md"
+      >
+        تصميم وتنفيذ <br />
+        طلاب كلية حاسبات قسم AI
+      </div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="flex-1 flex flex-col relative z-10">
+      <div
+        class="bg-[#d0e1fd] px-8 py-4 border-b border-[#a6c4f9] flex items-center justify-between shadow-md z-10"
+      >
+        <div class="flex items-center gap-4">
+          <img
+            src="logo.jpg"
+            alt="أفاتار البوت"
+            class="w-12 h-12 object-contain rounded-full border-2 border-white p-0.5 bg-white shadow-md"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2NjYyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIj5Cb3Q8L3RleHQ+PC9zdmc+'"
+          />
+          <div>
+            <h2 class="font-bold text-[#1e3a8a] text-xl">المساعد الذكي (AI)</h2>
+            <div class="flex items-center gap-2 mt-0.5">
+              <span class="relative flex h-2.5 w-2.5">
+                <span
+                  class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"
+                ></span>
+              </span>
+              <span class="text-xs text-[#2b4c9b] font-bold"
+                >مستعد للرد على استفساراتك</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden lg:flex gap-3 items-center">
+          <a
+            href="https://cnu.mohesr.gov.eg/bsnu"
+            target="_blank"
+            class="flex items-center gap-2 text-[#1e3a8a] bg-white hover:bg-gray-50 border-2 border-[#1e3a8a] transition font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm"
+          >
+            الموقع الرسمي
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/share/1BJPoQPqcA/"
+            target="_blank"
+            class="flex items-center gap-2 text-white bg-[#1877F2] hover:bg-[#166fe5] border-2 border-[#1877F2] transition font-bold text-sm px-5 py-2.5 rounded-xl shadow-md"
+          >
+            صفحة الفيسبوك
+            <svg
+              class="w-4 h-4 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="flex-1 p-8 overflow-y-auto flex flex-col gap-4 bg-[#eef3fb] shadow-inner relative scroll-smooth"
+        id="chat-container"
+      >
+        <div class="flex justify-start">
+          <div
+            class="bg-white text-gray-800 p-5 rounded-2xl rounded-tr-none shadow-md border border-blue-100 max-w-xl text-right"
+          >
+            <p class="font-medium text-gray-800 text-lg leading-relaxed">
+              أهلاً بك في خدمة المساعد الذكي لجامعة بني سويف الأهلية. إزاي أقدر
+              أساعدك في التقديم النهاردة؟
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-start mt-1" id="quick-actions-container">
+          <div class="flex flex-wrap gap-4 max-w-2xl pr-2">
+            
+            <button
+              onclick="sendMessage('ما هو تنسيق الكليات لعام 2025؟')"
+              class="quick-reply-btn bg-white hover:bg-[#f0f4fd] text-[#1e3a8a] border-2 border-[#d0e1fd] transition-all duration-300 px-6 py-3 rounded-full text-base font-bold flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1"
+            >
+              <span class="text-xl">📊</span> <span class="reply-text">تنسيق الكليات 2025</span>
+            </button>
+        
+            <button
+              onclick="sendMessage('ما هي المصروفات الدراسية للكليات؟')"
+              class="quick-reply-btn bg-white hover:bg-[#f0f4fd] text-[#1e3a8a] border-2 border-[#d0e1fd] transition-all duration-300 px-6 py-3 rounded-full text-base font-bold flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1"
+            >
+              <span class="text-xl">💰</span> <span class="reply-text">المصروفات الدراسية</span>
+            </button>
+        
+            <button
+              onclick="sendMessage('ما هي الأوراق المطلوبة للتقديم؟')"
+              class="quick-reply-btn bg-white hover:bg-[#f0f4fd] text-[#1e3a8a] border-2 border-[#d0e1fd] transition-all duration-300 px-6 py-3 rounded-full text-base font-bold flex items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1"
+            >
+              <span class="text-xl">📄</span> <span class="reply-text">الأوراق المطلوبة</span>
+            </button>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div
+        class="bg-[#d0e1fd] p-5 border-t border-[#a6c4f9] z-10 shadow-[0_-4px_15px_-3px_rgba(0,0,0,0.1)]"
+      >
+        <div
+          class="max-w-5xl mx-auto w-full flex items-center bg-white p-1.5 rounded-xl border border-[#a6c4f9] shadow-md focus-within:border-[#1e3a8a] focus-within:ring-2 focus-within:ring-[#1e3a8a]/20 transition-all"
+        >
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="اكتب استفسارك هنا..."
+            class="flex-1 bg-transparent border-none focus:ring-0 px-4 py-3 outline-none text-gray-800 font-bold disabled:opacity-50"
+            autocomplete="off"
+          />
+          <button
+            id="send-btn"
+            class="bg-[#1e3a8a] text-white px-8 py-3 rounded-lg hover:bg-[#152a66] transition font-bold shadow-md flex items-center gap-2 text-sm ml-1 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span class="text-base">إرسال</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 transform rotate-90"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script to Handle Chat Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatContainer = document.getElementById('chat-container');
+        const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
+        
+        // n8n Webhook URL
+        // const WEBHOOK_URL = 'http://localhost:5678/webhook-test/chat-api';
+        const WEBHOOK_URL = 'https://omarn8n.rooyai.com/webhook/chat-api';
+        // const WEBHOOK_URL = 'https://primary-production-04ca.up.railway.app/webhook-test/chat-api';
+
+
+        const sessionId = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 15);
+        
+        // Function to create and append a message element
+        function appendMessage(text, isUser = false, isError = false) {
+          const msgWrapper = document.createElement('div');
+          msgWrapper.className = isUser ? 'flex justify-end mb-4' : 'flex justify-start mb-4';
+
+          const msgBox = document.createElement('div');
+          
+          if (isUser) {
+            msgBox.className = 'bg-[#1e3a8a] text-white p-4 rounded-2xl rounded-tl-none shadow-md max-w-xl text-right';
+          } else {
+            // إضافة ستايل رسالة الخطأ لتكون حمراء
+            msgBox.className = isError 
+              ? 'bg-red-50 text-red-600 p-4 rounded-2xl rounded-tr-none shadow-md border border-red-200 max-w-xl text-right'
+              : 'bg-white text-gray-800 p-4 rounded-2xl rounded-tr-none shadow-md border border-blue-100 max-w-xl text-right';
+          }
+
+          const textEl = document.createElement('p');
+          textEl.className = 'font-medium text-lg leading-relaxed whitespace-pre-line';
+          textEl.textContent = text;
+
+          msgBox.appendChild(textEl);
+          msgWrapper.appendChild(msgBox);
+          
+          // Insert message before the typing indicator if it exists, otherwise at the end
+          const typingIndicator = document.getElementById('typing-indicator');
+          if (typingIndicator) {
+            chatContainer.insertBefore(msgWrapper, typingIndicator);
+          } else {
+            chatContainer.appendChild(msgWrapper);
+          }
+          
+          scrollToBottom();
+        }
+
+        // Function to show/hide typing indicator
+        function toggleTypingIndicator(show) {
+          let indicator = document.getElementById('typing-indicator');
+          
+          if (show) {
+            if (!indicator) {
+              indicator = document.createElement('div');
+              indicator.id = 'typing-indicator';
+              indicator.className = 'flex justify-start mb-4';
+              // تم إضافة صورة البوت (اللوجو) بجوار مؤشر الكتابة هنا
+              indicator.innerHTML = `
+                <div class="flex items-end gap-2">
+                  <img
+                    src="logo.jpg"
+                    alt="أفاتار البوت"
+                    class="w-8 h-8 object-contain rounded-full border border-gray-200 p-0.5 bg-white shadow-sm"
+                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2NjYyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIj5Cb3Q8L3RleHQ+PC9zdmc+'"
+                  />
+                  <div class="bg-white p-4 rounded-2xl rounded-tr-none shadow-md border border-blue-100 flex items-center gap-2 h-11">
+                    <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                  </div>
+                </div>
+              `;
+              chatContainer.appendChild(indicator);
+            }
+            indicator.style.display = 'flex';
+          } else {
+            if (indicator) {
+              indicator.style.display = 'none';
+            }
+          }
+          scrollToBottom();
+        }
+
+        // Function to scroll chat to bottom
+        function scrollToBottom() {
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+       // Main function to send message to webhook
+      async function sendMessage(messageText) {
+        if (!messageText.trim()) return;
+
+        // 1. Display user message
+        appendMessage(messageText, true);
+
+        // 2. Clear input and disable elements
+        chatInput.value = '';
+        chatInput.disabled = true;
+        sendBtn.disabled = true;
+        
+        // Hide quick actions once the user starts interacting
+        const quickActions = document.getElementById('quick-actions-container');
+        if (quickActions) quickActions.style.display = 'none';
+
+        // 3. Show loading/typing indicator
+        toggleTypingIndicator(true);
+
+        try {
+          // 4. Send POST request to n8n webhook
+          const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json, text/plain, */*'
+            },
+            body: JSON.stringify({ 
+              message: messageText,
+              sessionId: sessionId 
+            }) 
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          // استقبال الرد كنص مباشرة (Text) بدون محاولة تحويله إلى JSON
+          let botReply = await response.text();
+          console.log("n8n Webhook Response (Text):", botReply);
+
+          // تنظيف علامات التنصيص الزائدة إن وُجدت في النص القادم من الـ Webhook
+          if (typeof botReply === 'string' && botReply.startsWith('"') && botReply.endsWith('"')) {
+            botReply = botReply.substring(1, botReply.length - 1);
+          }
+
+          // تحويل الـ \n النصية إلى سطور جديدة فعلية (مهم لو n8n بيرسلها هكذا)
+          botReply = botReply.replace(/\\n/g, '\n');
+
+          // إذا كانت النتيجة النهائية نصاً فارغاً
+          if (!botReply || botReply.trim() === '') {
+              botReply = 'تم الرد ولكن الرد فارغ. تأكد من أن n8n يُرجع نصاً (Text).';
+              toggleTypingIndicator(false);
+              appendMessage(botReply, false, true); 
+              return;
+          }
+
+          // 6. Display bot response
+          toggleTypingIndicator(false);
+          appendMessage(botReply, false);
+
+        } catch (error) {
+          console.error('Error fetching from webhook:', error);
+          toggleTypingIndicator(false);
+          // استدعاء دالة إضافة الرسالة مع تمرير true كمعامل ثالث لتظهر كرسالة خطأ (حمراء)
+          appendMessage('عذراً، حدث خطأ في الاتصال بالخادم .', false, true);
+        } finally {
+          // 7. Re-enable inputs
+          chatInput.disabled = false;
+          sendBtn.disabled = false;
+          chatInput.focus();
+        }
+      }
+
+        // Event Listeners
+        sendBtn.addEventListener('click', () => {
+          sendMessage(chatInput.value);
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage(chatInput.value);
+          }
+        });
+
+        quickReplyBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const text = btn.querySelector('.reply-text').textContent;
+            sendMessage(text);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
